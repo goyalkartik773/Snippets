@@ -2,10 +2,15 @@
 
 A modern, feature-rich code snippet manager built with Next.js 15, Prisma, and TailwindCSS. Store, organize, and access your code snippets from anywhere with a beautiful, responsive interface.
 
+## 🌐 Live Demo
+
+**[View Live Demo →](https://snippets-pr9o7mzld-goyalkartik773s-projects.vercel.app/)**
+
 ![CodeSnippets Banner](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?style=for-the-badge&logo=prisma)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)
 
 ## ✨ Features
 
