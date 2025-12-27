@@ -33,13 +33,26 @@ A modern, feature-rich code snippet manager built with Next.js 15, Prisma, and T
 ### Prerequisites
 - Node.js 18+ installed
 - npm or yarn package manager
+- Neon PostgreSQL account (free tier available at [neon.tech](https://neon.tech))
 
-### Installation
+### Quick Start
+
+#### Option 1: Using the Setup Script (Windows)
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd snippets
+
+# Run the automated setup
+setup.bat
+```
+
+#### Option 2: Manual Setup
 
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
-   cd snippets_yt
+   cd snippets
    ```
 
 2. **Install dependencies**
@@ -47,28 +60,34 @@ A modern, feature-rich code snippet manager built with Next.js 15, Prisma, and T
    npm install
    ```
 
-3. **Set up environment variables**
+3. **Set up Neon PostgreSQL Database**
+   - Go to [neon.tech](https://neon.tech) and create a free account
+   - Create a new project
+   - Copy both connection strings (Pooled and Direct)
+
+4. **Configure environment variables**
    ```bash
    cp .env.example .env
    ```
    
-   Update `.env` with your database URL:
+   Update `.env` with your Neon connection strings:
    ```env
-   DATABASE_URL="file:./dev.db"
+   DATABASE_URL="postgresql://user:pass@host/db?sslmode=require&pgbouncer=true"
+   DIRECT_URL="postgresql://user:pass@host/db?sslmode=require"
    ```
 
-4. **Initialize the database**
+5. **Initialize the database**
    ```bash
-   npx prisma migrate dev
    npx prisma generate
+   npx prisma db push
    ```
 
-5. **Run the development server**
+6. **Run the development server**
    ```bash
    npm run dev
    ```
 
-6. **Open your browser**
+7. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## 📖 Usage
@@ -98,18 +117,19 @@ A modern, feature-rich code snippet manager built with Next.js 15, Prisma, and T
 
 - **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Database:** [Prisma](https://www.prisma.io/) with SQLite
+- **Database:** [Prisma](https://www.prisma.io/) with [PostgreSQL](https://www.postgresql.org/) (Neon)
 - **Styling:** [TailwindCSS](https://tailwindcss.com/)
 - **Code Editor:** [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 - **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
 - **Notifications:** [React Hot Toast](https://react-hot-toast.com/)
 - **Validation:** [Zod](https://zod.dev/)
 - **Date Formatting:** [date-fns](https://date-fns.org/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
 ## 📁 Project Structure
 
 ```
-snippets_yt/
+snippets/
 ├── prisma/
 │   ├── schema.prisma          # Database schema
 │   └── migrations/            # Database migrations
@@ -135,6 +155,8 @@ snippets_yt/
 │       ├── prisma.ts         # Prisma client
 │       └── utils.ts          # Utility functions
 ├── .env.example              # Environment variables template
+├── DEPLOYMENT.md             # Deployment guide
+├── TROUBLESHOOTING.md        # Common issues and solutions
 ├── package.json              # Dependencies
 └── README.md                 # This file
 ```
@@ -154,17 +176,30 @@ npm run lint     # Run ESLint
 
 ## 🌐 Deployment
 
-### Deploy to Vercel
+### Deploy to Vercel (Recommended)
 
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com)
-3. Configure environment variables
-4. Deploy!
+This project is optimized for deployment on Vercel with Neon PostgreSQL.
 
-For database, consider upgrading to:
-- **PostgreSQL** (Neon, Supabase, Railway)
-- **MySQL** (PlanetScale)
-- **MongoDB** (MongoDB Atlas)
+**Quick Deploy:**
+
+1. **Set up Neon Database**
+   - Create account at [neon.tech](https://neon.tech)
+   - Create a new project
+   - Copy connection strings
+
+2. **Deploy to Vercel**
+   - Push code to GitHub
+   - Import repository on [Vercel](https://vercel.com)
+   - Add environment variables:
+     - `DATABASE_URL` (pooled connection)
+     - `DIRECT_URL` (direct connection)
+   - Deploy!
+
+**Detailed Instructions:**
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for step-by-step deployment guide.
+
+**Troubleshooting:**
+See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for common issues and solutions.
 
 ## 🤝 Contributing
 

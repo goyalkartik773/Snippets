@@ -8,7 +8,6 @@ import { formatDistanceToNow } from "date-fns";
 
 type SnippetDetailClientProps = {
     snippet: Snippet;
-    onDelete: () => void;
     onToggleFavorite: () => void;
 };
 
@@ -34,7 +33,6 @@ const LANGUAGE_COLORS: Record<string, string> = {
 
 export default function SnippetDetailClient({
     snippet,
-    onDelete,
     onToggleFavorite,
 }: SnippetDetailClientProps) {
     const [copied, setCopied] = useState(false);

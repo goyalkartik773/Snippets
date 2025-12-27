@@ -65,7 +65,6 @@ const SnippetDetailPage: React.FC<SnippetDetailsProps> = async ({
       {/* Snippet Detail */}
       <SnippetDetailClient
         snippet={snippet}
-        onDelete={deleteSnippetAction}
         onToggleFavorite={toggleFavoriteAction}
       />
     </div>
