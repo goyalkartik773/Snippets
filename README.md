@@ -4,7 +4,7 @@ A modern, feature-rich code snippet manager built with Next.js 15, Prisma, and T
 
 ## 🌐 Live Demo
 
-**[View Live Demo →](https://snippets-pr9o7mzld-goyalkartik773s-projects.vercel.app/)**
+**[View Live Demo →](https://snippets-devkartik.vercel.app/)**
 
 ![CodeSnippets Banner](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
